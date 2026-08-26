@@ -1,3 +1,5 @@
+import heroImg from "../../assets/hero.jpg";
+
 const STATS = [
   { v: "+۵۰۰", l: "موتور فروخته شده" },
   { v: "+۸", l: "سال سابقه" },
@@ -9,7 +11,7 @@ export default function Hero() {
     <section id="hero" className="relative min-h-screen flex flex-col justify-end overflow-hidden pt-20">
       <div className="absolute inset-0">
         <img
-          src="src/assets/hero.jpg"
+          src={heroImg}
           alt="موتورسیکلت اسپرت قرمز در نمایشگاه"
           className="w-full h-full object-cover opacity-35"
         />

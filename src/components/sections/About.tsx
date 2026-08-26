@@ -1,3 +1,5 @@
+import aboutImg from "../../assets/image_7.jpg";
+
 const ABOUT_STATS = [
   { v: "+۵۰۰", l: "فروش موفق" },
   { v: "۷ روز", l: "خدمات هفتگی" },
@@ -11,7 +13,7 @@ export default function About() {
         <div className="relative">
           <div className="aspect-[4/5] overflow-hidden bg-zinc-900" style={{ borderRadius: "6px" }}>
             <img
-              src="src/assets/image_7.jpg"
+              src={aboutImg}
               alt="تکنسین مجرب در حال کار روی موتورسیکلت"
               className="w-full h-full object-cover opacity-75"
             />

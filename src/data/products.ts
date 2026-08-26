@@ -1,3 +1,10 @@
+import image1 from "../assets/image_1.jpg";
+import image2 from "../assets/image_2.jpg";
+import image3 from "../assets/image_3.jpg";
+import image4 from "../assets/image_4.jpg";
+import image5 from "../assets/image_5.jpg";
+import image6 from "../assets/image_6.jpg";
+
 export interface Product {
   id: number;
   name: string;
@@ -28,7 +35,7 @@ export const PRODUCTS: Product[] = [
     engine: "۵۹۹cc",
     power: "۱۲۱ اسب",
     topSpeed: "۲۵۵ کیلومتر",
-    img: "src/assets/image_1.jpg",
+    img: image1,
     alt: "Red sport motorcycle in showroom",
     new: true,
   },
@@ -44,7 +51,7 @@ export const PRODUCTS: Product[] = [
     engine: "۹۵۵cc",
     power: "۱۵۵ اسب",
     topSpeed: "۲۷۰ کیلومتر",
-    img: "src/assets/image_2.jpg",
+    img: image2,
     alt: "Red Ducati Panigale motorcycle",
     new: true,
   },
@@ -60,7 +67,7 @@ export const PRODUCTS: Product[] = [
     engine: "۸۸۸cc",
     power: "۹۴ اسب",
     topSpeed: "۲۲۰ کیلومتر",
-    img: "src/assets/image_3.jpg",
+    img: image3,
     alt: "Triumph motorcycle parked outdoors",
     new: false,
   },
@@ -76,7 +83,7 @@ export const PRODUCTS: Product[] = [
     engine: "۹۹۹cc",
     power: "۲۱۴ اسب",
     topSpeed: "۲۹۹ کیلومتر",
-    img: "src/assets/image_4.jpg",
+    img: image4,
     alt: "Red sport motorcycle on display mat",
     new: true,
   },
@@ -92,7 +99,7 @@ export const PRODUCTS: Product[] = [
     engine: "۹۴۸cc",
     power: "۱۲۵ اسب",
     topSpeed: "۲۵۰ کیلومتر",
-    img: "src/assets/image_5.jpg",
+    img: image5,
     alt: "Close-up of sport motorcycle front",
     new: false,
   },
@@ -108,7 +115,7 @@ export const PRODUCTS: Product[] = [
     engine: "۱,۲۵۴cc",
     power: "۱۳۶ اسب",
     topSpeed: "۲۲۰ کیلومتر",
-    img: "src/assets/image_6.jpg",
+    img: image6,
     alt: "White adventure motorcycle in showroom",
     new: false,
   },
