@@ -9,7 +9,7 @@ export default function Hero() {
     <section id="hero" className="relative min-h-screen flex flex-col justify-end overflow-hidden pt-20">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1778276251565-792bf0550b92?w=1600&h=1000&fit=crop&auto=format"
+          src="src/assets/hero.jpg"
           alt="موتورسیکلت اسپرت قرمز در نمایشگاه"
           className="w-full h-full object-cover opacity-35"
         />
