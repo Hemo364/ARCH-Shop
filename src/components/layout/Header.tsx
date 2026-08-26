@@ -46,15 +46,52 @@ export default function Header() {
         </button>
       </nav>
 
-      {mobileOpen && (
-        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-7" style={{ background: "var(--background)" }}>
-          {NAV_LINKS.map((l) => (
-            <a key={l.label} href={l.href} onClick={() => setMobileOpen(false)} className="text-3xl font-bold">
-              {l.label}
-            </a>
-          ))}
+      <div
+        className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        style={{ background: "rgba(0,0,0,0.6)" }}
+        onClick={() => setMobileOpen(false)}
+      />
+
+      <div
+        className={`fixed top-0 left-0 bottom-0 z-50 w-4/5 max-w-xs md:hidden flex flex-col gap-2 px-6 py-6 border-r transition-transform duration-300 ease-in-out ${
+          mobileOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+        style={{ background: "var(--background)", borderColor: "var(--border)" }}
+      >
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            {/* <img className="size-9 rounded-full" src={logo} alt="لوگوی فروشگاه RCH" /> */}
+            <span className="font-bold text-sm">فروشگاه موتورسیکلت</span>
+          </div>
+          <button className="p-2" onClick={() => setMobileOpen(false)} aria-label="بستن منو">
+            <FiX className="text-2xl" />
+          </button>
         </div>
-      )}
+
+        {NAV_LINKS.map((l) => (
+          <a
+            key={l.label}
+            href={l.href}
+            onClick={() => setMobileOpen(false)}
+            className="text-base font-semibold py-3 border-b"
+            style={{ borderColor: "var(--border)" }}
+          >
+            {l.label}
+          </a>
+        ))}
+
+        <a
+          href="tel:02634000000"
+          onClick={() => setMobileOpen(false)}
+          className="flex items-center justify-center gap-2 px-5 py-3 mt-4 text-sm font-semibold"
+          style={{ background: "var(--primary)", color: "#fff", borderRadius: "var(--radius)" }}
+        >
+          <FiPhoneCall className="text-base" />
+          <span>مشاوره رایگان</span>
+        </a>
+      </div>
     </>
   );
 }
