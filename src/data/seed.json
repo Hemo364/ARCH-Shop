@@ -1,0 +1,114 @@
+{
+  "categories": ["اسپرت", "سوپراسپرت", "سوپرباک", "نیکد", "آدونچر"],
+  "products": [
+    { "name": "هوندا CBR 600RR", "category": "اسپرت", "status": "available", "cashPrice": 1850000000, "installmentAmount": 120000000, "installmentMonths": 18, "engine": "۵۹۹cc", "power": "۱۲۱ اسب", "topSpeed": "۲۵۵ کیلومتر", "img": "image_1.jpg", "alt": "Red sport motorcycle in showroom", "isNew": true },
+    { "name": "داکاتی پانیگاله V2", "category": "سوپراسپرت", "status": "available", "cashPrice": 4200000000, "installmentAmount": 280000000, "installmentMonths": 18, "engine": "۹۵۵cc", "power": "۱۵۵ اسب", "topSpeed": "۲۷۰ کیلومتر", "img": "image_2.jpg", "alt": "Red Ducati Panigale motorcycle", "isNew": true },
+    { "name": "تریومف تایگر ۹۰۰", "category": "آدونچر", "status": "available", "cashPrice": 3100000000, "installmentAmount": 210000000, "installmentMonths": 18, "engine": "۸۸۸cc", "power": "۹۴ اسب", "topSpeed": "۲۲۰ کیلومتر", "img": "image_3.jpg", "alt": "Triumph motorcycle parked outdoors", "isNew": false },
+    { "name": "هوندا CBR 1000RR", "category": "سوپرباک", "status": "presale", "cashPrice": 5600000000, "installmentAmount": 370000000, "installmentMonths": 18, "engine": "۹۹۹cc", "power": "۲۱۴ اسب", "topSpeed": "۲۹۹ کیلومتر", "img": "image_4.jpg", "alt": "Red sport motorcycle on display mat", "isNew": true },
+    { "name": "کاوازاکی Z900", "category": "نیکد", "status": "available", "cashPrice": 2450000000, "installmentAmount": 165000000, "installmentMonths": 18, "engine": "۹۴۸cc", "power": "۱۲۵ اسب", "topSpeed": "۲۵۰ کیلومتر", "img": "image_5.jpg", "alt": "Close-up of sport motorcycle front", "isNew": false },
+    { "name": "بی‌ام‌و R1250GS", "category": "آدونچر", "status": "available", "cashPrice": 6800000000, "installmentAmount": 450000000, "installmentMonths": 18, "engine": "۱,۲۵۴cc", "power": "۱۳۶ اسب", "topSpeed": "۲۲۰ کیلومتر", "img": "image_6.jpg", "alt": "White adventure motorcycle in showroom", "isNew": false }
+  ],
+  "content": {
+    "brand": {
+      "storeName": "فروشگاه موتورسیکلت",
+      "fullName": "فروشگاه موتورسیکلت RCH",
+      "tagline": "RCH · کرج",
+      "location": "کرج · البرز",
+      "logo": "logo.jpg",
+      "logoAlt": "لوگوی فروشگاه RCH",
+      "ctaLabel": "مشاوره رایگان"
+    },
+    "hero": {
+      "pill": "نمایشگاه فعال · کرج، البرز",
+      "titleMain": "موتورسیکلت",
+      "titleAccent": "RCH",
+      "subtitle": "با بهترین قیمت",
+      "description": "فروش نقد و اقساط انواع موتورسیکلت اسپرت، سوپرباک و آدونچر با ضمانت اصالت و خدمات پس از فروش · واقع در کرج",
+      "image": "hero.jpg",
+      "imageAlt": "موتورسیکلت اسپرت قرمز در نمایشگاه",
+      "primaryCta": "مشاهده محصولات",
+      "secondaryCta": "شرایط اقساط",
+      "stats": [
+        { "v": "+۵۰۰", "l": "موتور فروخته شده" },
+        { "v": "+۸", "l": "سال سابقه" },
+        { "v": "۱۸ ماهه", "l": "اقساط بدون سود" }
+      ]
+    },
+    "features": {
+      "items": [
+        { "icon": "credit-card", "title": "فروش اقساطی", "desc": "با پیش‌پرداخت ۳۰٪ و اقساط ۱۸ ماهه موتور رویایی‌ات را بخر" },
+        { "icon": "shield", "title": "گارانتی اصالت", "desc": "تمام محصولات دارای مدارک کامل و کارشناسی معتبر هستند" },
+        { "icon": "tool", "title": "سرویس پس از فروش", "desc": "خدمات نگهداری و تعمیر توسط تکنسین‌های مجرب" },
+        { "icon": "truck", "title": "ارسال به سراسر ایران", "desc": "ارسال با بیمه کامل به تمام شهرهای کشور" }
+      ]
+    },
+    "catalog": {
+      "eyebrow": "موجودی نمایشگاه",
+      "title": "محصولات ما",
+      "newLabel": "جدید",
+      "depositNote": "پیش‌پرداخت: ۳۰٪ · بدون بهره",
+      "buyLabel": "خرید / استعلام",
+      "consultLabel": "مشاوره"
+    },
+    "installment": {
+      "eyebrow": "بدون بهره · بدون ضامن",
+      "title": "شرایط فروش اقساطی",
+      "intro": "با ۳۰٪ پیش‌پرداخت، موتور دلخواه خود را تحویل بگیرید و الباقی را در ۱۸ قسط ماهانه بدون بهره پرداخت کنید.",
+      "steps": [
+        { "title": "انتخاب موتور", "desc": "از بین موجودی نمایشگاه موتور مورد نظر خود را انتخاب کنید و با کارشناسان ما مشورت بگیرید." },
+        { "title": "پیش‌پرداخت ۳۰٪", "desc": "۳۰٪ مبلغ را به عنوان پیش‌پرداخت پرداخت کرده و مدارک هویتی خود را ارائه دهید." },
+        { "title": "تحویل و اقساط", "desc": "موتور را تحویل بگیرید. اقساط ماهانه بدون بهره به مدت ۱۸ ماه پرداخت می‌شود." }
+      ],
+      "docsTitle": "شرایط و مدارک لازم",
+      "docs": [
+        "کارت ملی و شناسنامه اصل",
+        "گواهینامه معتبر موتورسیکلت",
+        "سند مالکیت ملک یا اجاره‌نامه",
+        "ضمانتنامه معتبر (اختیاری)",
+        "عکس پرسنلی ۳x۴",
+        "فرم تکمیل‌شده درخواست"
+      ],
+      "cta": "درخواست مشاوره اقساط"
+    },
+    "about": {
+      "image": "image_7.jpg",
+      "imageAlt": "تکنسین مجرب در حال کار روی موتورسیکلت",
+      "badgeValue": "+۸",
+      "badgeLabel": "سال تجربه",
+      "eyebrow": "فروشگاه RCH",
+      "titleLine1": "متخصص فروش",
+      "titleAccent": "موتورسیکلت",
+      "titleLine3": "در کرج",
+      "paragraphs": [
+        "فروشگاه موتورسیکلت RCH با بیش از ۸ سال سابقه فعالیت در کرج، یکی از معتبرترین مراکز فروش موتورسیکلت‌های اسپرت و آدونچر در استان البرز است.",
+        "ما با ارائه محصولات اصل، قیمت‌گذاری شفاف و خدمات پس از فروش حرفه‌ای، اعتماد بیش از ۵۰۰ مشتری را کسب کرده‌ایم. هر موتوری که از ما می‌خرید با ضمانت اصالت و کارشناسی معتبر همراه است."
+      ],
+      "stats": [
+        { "v": "+۵۰۰", "l": "فروش موفق" },
+        { "v": "۷ روز", "l": "خدمات هفتگی" },
+        { "v": "۱۰۰٪", "l": "رضایت مشتری" }
+      ]
+    },
+    "contact": {
+      "eyebrow": "ارتباط با ما",
+      "titleMain": "مشاوره رایگان",
+      "titleAccent": "بگیر",
+      "intro": "با کارشناسان فروش ما تماس بگیرید. راهنمایی رایگان درباره انتخاب موتور، قیمت‌ها و شرایط اقساط دریافت کنید.",
+      "quickTitle": "راه‌های ارتباطی سریع",
+      "phones": ["09019150707", "09382769181"],
+      "instagram": "motorarch",
+      "address": "کرج، مهرشهر، خیابان بهشتی، نمایشگاه موتورسیکلت RCH",
+      "workingHours": "شنبه تا پنجشنبه: ۹ صبح تا ۸ شب · جمعه: ۱۰ تا ۶"
+    },
+    "footer": {
+      "blurb": "فروش نقد و اقساط انواع موتورسیکلت اسپرت، آدونچر و سوپرباک با بهترین قیمت و ضمانت اصالت در کرج.",
+      "linksTitle": "دسترسی سریع",
+      "contactTitle": "تماس با ما",
+      "copyright": "© ۱۴۰۵ فروشگاه موتورسیکلت RCH · تمام حقوق محفوظ است"
+    },
+    "seo": {
+      "title": "فروشگاه موتورسیکلت RCH",
+      "description": "فروش نقد و اقساط انواع موتورسیکلت اسپرت، آدونچر و سوپرباک با بهترین قیمت و ضمانت اصالت در کرج."
+    }
+  }
+}

@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { FiMenu, FiPhoneCall, FiX } from "react-icons/fi";
-import logo from "../../assets/logo.jpg";
-import { NAV_LINKS } from "../../data/contact";
+import { useSiteData } from "../../context/siteData";
+import { NAV_LINKS } from "../../data/navigation";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { brand, contact } = useSiteData().content;
+  const ctaHref = contact.phones[0] ? `tel:${contact.phones[0]}` : "#contact";
 
   return (
     <>
       <nav className="fixed top-0 right-0 left-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 border-b" style={{ borderColor: "var(--border)", background: "rgba(10,10,15,0.95)", backdropFilter: "blur(16px)" }}>
         <div className="flex items-center gap-3">
-          <img className="size-10 rounded-full" src={logo} alt="لوگوی فروشگاه RCH" />
+          <img className="size-10 rounded-full" src={brand.logo} alt={brand.logoAlt} />
           <div className="flex flex-col leading-none">
-            <span className="font-bold text-base tracking-wide" style={{ letterSpacing: "0.05em" }}>فروشگاه موتورسیکلت</span>
-            <span className="text-xs mt-0.5" style={{ color: "var(--primary)", fontFamily: "Barlow Condensed, sans-serif", letterSpacing: "0.1em" }}>RCH · کرج</span>
+            <span className="font-bold text-base tracking-wide" style={{ letterSpacing: "0.05em" }}>{brand.storeName}</span>
+            <span className="text-xs mt-0.5" style={{ color: "var(--primary)", fontFamily: "Barlow Condensed, sans-serif", letterSpacing: "0.1em" }}>{brand.tagline}</span>
           </div>
         </div>
 
@@ -33,12 +35,12 @@ export default function Header() {
         </div>
 
         <a
-          href="tel:02634000000"
+          href={ctaHref}
           className="hidden md:flex items-center gap-2 px-5 py-2.5 text-sm font-semibold transition-opacity duration-200 hover:opacity-85"
           style={{ background: "var(--primary)", color: "#fff", borderRadius: "var(--radius)" }}
         >
           <FiPhoneCall className="text-base" />
-          <span>مشاوره رایگان</span>
+          <span>{brand.ctaLabel}</span>
         </a>
 
         <button className="md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)} aria-label="منو">
@@ -63,7 +65,7 @@ export default function Header() {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             {/* <img className="size-9 rounded-full" src={logo} alt="لوگوی فروشگاه RCH" /> */}
-            <span className="font-bold text-sm">فروشگاه موتورسیکلت</span>
+            <span className="font-bold text-sm">{brand.storeName}</span>
           </div>
           <button className="p-2" onClick={() => setMobileOpen(false)} aria-label="بستن منو">
             <FiX className="text-2xl" />
@@ -83,13 +85,13 @@ export default function Header() {
         ))}
 
         <a
-          href="tel:02634000000"
+          href={ctaHref}
           onClick={() => setMobileOpen(false)}
           className="flex items-center justify-center gap-2 px-5 py-3 mt-4 text-sm font-semibold"
           style={{ background: "var(--primary)", color: "#fff", borderRadius: "var(--radius)" }}
         >
           <FiPhoneCall className="text-base" />
-          <span>مشاوره رایگان</span>
+          <span>{brand.ctaLabel}</span>
         </a>
       </div>
     </>

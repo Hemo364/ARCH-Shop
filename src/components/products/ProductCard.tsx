@@ -1,11 +1,17 @@
-import type { Product } from "../../data/products";
+import { useSiteData } from "../../context/siteData";
+import { STATUS_LABELS, type Product } from "../../data/types";
+import { formatPrice } from "../../lib/format";
 
 interface ProductCardProps {
   product: Product;
+  categoryName: string;
   activeTab: "cash" | "install";
 }
 
-export default function ProductCard({ product: p, activeTab }: ProductCardProps) {
+export default function ProductCard({ product: p, categoryName, activeTab }: ProductCardProps) {
+  const { catalog } = useSiteData().content;
+  const isAvailable = p.status === "available";
+
   return (
     <div
       className="group overflow-hidden transition-transform duration-300 hover:-translate-y-1"
@@ -16,27 +22,27 @@ export default function ProductCard({ product: p, activeTab }: ProductCardProps)
       <div className="relative overflow-hidden aspect-video bg-zinc-900">
         <img
           src={p.img}
-          alt={p.alt}
+          alt={p.alt || p.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-85"
         />
         <div className="absolute top-3 right-3 flex gap-2">
-          {p.new && (
-            <span className="px-2.5 py-1 text-xs font-bold" style={{ background: "var(--primary)", color: "#fff", borderRadius: "3px" }}>جدید</span>
+          {p.isNew && (
+            <span className="px-2.5 py-1 text-xs font-bold" style={{ background: "var(--primary)", color: "#fff", borderRadius: "3px" }}>{catalog.newLabel}</span>
           )}
           <span
             className="px-2.5 py-1 text-xs font-bold"
             style={{
-              background: p.badgeType === "available" ? "rgba(0,200,100,0.15)" : "rgba(255,200,0,0.15)",
-              color: p.badgeType === "available" ? "#00c864" : "#ffc800",
-              border: `1px solid ${p.badgeType === "available" ? "rgba(0,200,100,0.3)" : "rgba(255,200,0,0.3)"}`,
+              background: isAvailable ? "rgba(0,200,100,0.15)" : "rgba(255,200,0,0.15)",
+              color: isAvailable ? "#00c864" : "#ffc800",
+              border: `1px solid ${isAvailable ? "rgba(0,200,100,0.3)" : "rgba(255,200,0,0.3)"}`,
               borderRadius: "3px",
             }}
           >
-            {p.badge}
+            {STATUS_LABELS[p.status]}
           </span>
         </div>
         <div className="absolute bottom-3 left-3">
-          <span className="px-2.5 py-1 text-xs font-medium" style={{ background: "rgba(10,10,15,0.8)", color: "var(--muted-foreground)", borderRadius: "3px" }}>{p.category}</span>
+          <span className="px-2.5 py-1 text-xs font-medium" style={{ background: "rgba(10,10,15,0.8)", color: "var(--muted-foreground)", borderRadius: "3px" }}>{categoryName}</span>
         </div>
       </div>
 
@@ -60,13 +66,13 @@ export default function ProductCard({ product: p, activeTab }: ProductCardProps)
           {activeTab === "cash" ? (
             <div>
               <div className="text-xs mb-1" style={{ color: "var(--muted-foreground)" }}>قیمت نقد</div>
-              <div className="text-lg font-black" style={{ color: "var(--primary)" }}>{p.cashPrice} <span className="text-sm font-normal">تومان</span></div>
+              <div className="text-lg font-black" style={{ color: "var(--primary)" }}>{formatPrice(p.cashPrice)} <span className="text-sm font-normal">تومان</span></div>
             </div>
           ) : (
             <div>
               <div className="text-xs mb-1" style={{ color: "var(--muted-foreground)" }}>اقساط ماهیانه ({p.installmentMonths} ماهه)</div>
-              <div className="text-lg font-black" style={{ color: "var(--primary)" }}>{p.installment} <span className="text-sm font-normal">تومان/ماه</span></div>
-              <div className="text-xs mt-1" style={{ color: "var(--muted-foreground)" }}>پیش‌پرداخت: ۳۰٪ · بدون بهره</div>
+              <div className="text-lg font-black" style={{ color: "var(--primary)" }}>{formatPrice(p.installmentAmount)} <span className="text-sm font-normal">تومان/ماه</span></div>
+              <div className="text-xs mt-1" style={{ color: "var(--muted-foreground)" }}>{catalog.depositNote}</div>
             </div>
           )}
         </div>
@@ -77,7 +83,7 @@ export default function ProductCard({ product: p, activeTab }: ProductCardProps)
             className="flex-1 py-3 text-center text-sm font-bold transition-opacity duration-200 hover:opacity-85"
             style={{ background: "var(--primary)", color: "#fff", borderRadius: "4px" }}
           >
-            خرید / استعلام
+            {catalog.buyLabel}
           </a>
           <a
             href="#contact"
@@ -86,7 +92,7 @@ export default function ProductCard({ product: p, activeTab }: ProductCardProps)
             onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--primary)")}
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
           >
-            مشاوره
+            {catalog.consultLabel}
           </a>
         </div>
       </div>

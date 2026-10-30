@@ -1,75 +1,79 @@
-# React + TypeScript + Vite
+# فروشگاه موتورسیکلت RCH
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+سایت فروشگاه با پنل مدیریت. ساخته‌شده با React، Vite و Tailwind، با دیتابیس، لاگین و ذخیره‌ی عکس روی Supabase و هاست Vercel.
 
-Currently, two official plugins are available:
+- سایت: `/`
+- پنل مدیریت: `/admin`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## راه‌اندازی
 
-## React Compiler
+### ۱. ساخت پروژه‌ی Supabase
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. در [supabase.com](https://supabase.com) یک پروژه بسازید.
+2. در بخش **SQL Editor** محتوای فایل [supabase/schema.sql](supabase/schema.sql) را اجرا کنید.
+3. در **Authentication > Sign In / Providers** گزینه‌ی **Allow new users to sign up** را خاموش کنید.
 
-## Expanding the ESLint configuration
+### ۲. وارد کردن محتوای فعلی سایت
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+از **Project Settings > API** مقادیر URL، anon key و service role key را بردارید. فایل `.env.example` را به `.env` کپی کنید، مقادیر را داخلش بگذارید و بعد اجرا کنید:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run seed
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+این دستور محصولات، دسته‌ها، متن‌ها و عکس‌های فعلی را به Supabase منتقل می‌کند و کاربر مدیر را می‌سازد. اگر محصولی از قبل وجود داشته باشد، محتوا را دست نمی‌زند، پس اجرای دوباره‌اش خطری برای داده‌های مشتری ندارد.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+کاربر تستی: یوزرنیم `admin` و پسورد `Admin@12345`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### ۳. دیپلوی روی Vercel
 
+در **Settings > Environment Variables** فقط این دو متغیر را اضافه کنید و بعد دیپلوی کنید:
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+
+> کلید `SUPABASE_SERVICE_ROLE_KEY` دسترسی کامل به دیتابیس می‌دهد. آن را هرگز روی Vercel نگذارید، کامیت نکنید و پیشوند `VITE_` به آن ندهید.
+
+### چک‌لیست قبل از تحویل به مشتری
+
+- [ ] پسورد تستی را از **حساب کاربری** در پنل عوض کنید.
+- [ ] سایت و پنل را با اینترنت ایران و بدون VPN باز کنید و یک ویرایش آزمایشی انجام دهید.
+- [ ] مطمئن شوید ثبت‌نام عمومی در Supabase خاموش است.
+
+## نکات نگهداری
+
+- **داده‌ی پشتیبان:** اگر اتصال به Supabase برقرار نشود، سایت آخرین نسخه‌ای را که در مرورگر بازدیدکننده ذخیره شده نشان می‌دهد و اگر آن هم نباشد، محتوای اولیه‌ی [src/data/seed.json](src/data/seed.json) را. در این حالت قیمت‌ها ممکن است به‌روز نباشند.
+- **پلن رایگان Supabase:** پروژه بعد از مدتی بی‌فعالیتی متوقف می‌شود. تابع [api/keepalive.js](api/keepalive.js) هر روز با Vercel Cron اجرا می‌شود تا این اتفاق نیفتد.
+- **بکاپ:** پلن رایگان Supabase بکاپ خودکار ندارد. برای فروشگاه واقعی، پلن پولی یا بکاپ دوره‌ای را در نظر بگیرید.
+- **یوزر مدیر جدید:** در `.env` مقدارهای `SEED_ADMIN_USERNAME` و `SEED_ADMIN_PASSWORD` را عوض کنید و `npm run seed` را دوباره اجرا کنید.
+
+## راهنمای مدیر سایت
+
+بعد از ورود به `/admin` این بخش‌ها را دارید:
+
+| بخش | کاربرد |
+|---|---|
+| داشبورد | خلاصه‌ی محصولات و آخرین ویرایش‌ها |
+| محصولات | افزودن، ویرایش، کپی، حذف، تغییر ترتیب، پیش‌نویس کردن و تغییر سریع قیمت |
+| دسته‌بندی‌ها | افزودن، تغییر نام، تغییر ترتیب و حذف دسته‌ها |
+| محتوای سایت | متن‌ها و عکس‌های بخش اول، ویژگی‌ها، اقساط و درباره ما |
+| تماس و فوتر | شماره‌ها، آدرس، ساعت کاری، اینستاگرام و متن فوتر |
+| برند و سئو | لوگو، نام فروشگاه، عنوان صفحه و توضیحات گوگل |
+| حساب کاربری | تغییر پسورد |
+
+چند نکته:
+
+- **تغییر قیمت سریع:** در لیست محصولات روی قیمت کلیک کنید، عدد جدید را بنویسید و Enter بزنید.
+- **برداشتن موقت محصول:** به جای حذف، روی آیکن چشم بزنید تا پیش‌نویس شود و در سایت دیده نشود.
+- **قسط:** مبلغ هر قسط خودکار حساب نمی‌شود. با تغییر قیمت نقد، آن را هم بررسی کنید.
+- **ذخیره:** هر فرم دکمه‌ی ذخیره‌ی خودش را دارد. قبل از رفتن به تب یا صفحه‌ی دیگر حتماً ذخیره کنید.
+- **دیدن تغییرات:** تغییرات با باز کردن یا رفرش سایت دیده می‌شوند.
+
+## توسعه
+
+```bash
+npm run dev      # بدون .env هم اجرا می‌شود و سایت با محصولات اولیه بالا می‌آید
+npm run lint
+npm run build
 ```
