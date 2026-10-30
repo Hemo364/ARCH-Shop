@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Navigate, NavLink, Outlet, useLocation } from "react-router-dom";
 import type { IconType } from "react-icons";
-import { FiExternalLink, FiFileText, FiGrid, FiHome, FiLogOut, FiMenu, FiPackage, FiPhone, FiSettings, FiUser, FiX } from "react-icons/fi";
+import { FiExternalLink, FiFileText, FiGrid, FiHome, FiLogOut, FiMenu, FiPackage, FiPhone, FiSettings, FiX } from "react-icons/fi";
 import { useAuth } from "../context";
 import { Button, EmptyState } from "./ui";
 
@@ -12,7 +12,6 @@ const NAV: { to: string; label: string; icon: IconType; end?: boolean }[] = [
   { to: "/admin/content", label: "محتوای سایت", icon: FiFileText },
   { to: "/admin/contact", label: "تماس و فوتر", icon: FiPhone },
   { to: "/admin/brand", label: "برند و سئو", icon: FiSettings },
-  { to: "/admin/account", label: "حساب کاربری", icon: FiUser },
 ];
 
 export default function AdminLayout() {

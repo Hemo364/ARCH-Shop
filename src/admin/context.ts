@@ -7,7 +7,6 @@ export interface AuthState {
   email: string | null;
   signIn: (username: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
-  changePassword: (currentPassword: string, newPassword: string) => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthState | null>(null);

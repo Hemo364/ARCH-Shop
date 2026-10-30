@@ -4,7 +4,6 @@ import AuthProvider from "./AuthProvider";
 import ToastProvider from "./ToastProvider";
 import AdminLayout from "./components/AdminLayout";
 import { EmptyState } from "./components/ui";
-import Account from "./pages/Account";
 import BrandSeo from "./pages/BrandSeo";
 import Categories from "./pages/Categories";
 import ContactFooter from "./pages/ContactFooter";
@@ -39,7 +38,6 @@ export default function AdminApp() {
             <Route path="content" element={<ContentPage />} />
             <Route path="contact" element={<ContactFooter />} />
             <Route path="brand" element={<BrandSeo />} />
-            <Route path="account" element={<Account />} />
             <Route path="*" element={<Navigate to="/admin" replace />} />
           </Route>
         </Routes>

@@ -57,13 +57,6 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       async signOut() {
         await db().auth.signOut();
       },
-      async changePassword(currentPassword, newPassword) {
-        if (!email) throw new Error("Not signed in");
-        const { error: verifyError } = await db().auth.signInWithPassword({ email, password: currentPassword });
-        if (verifyError) throw new Error("WRONG_CURRENT_PASSWORD");
-        const { error } = await db().auth.updateUser({ password: newPassword });
-        if (error) throw error;
-      },
     }),
     [status, email],
   );
