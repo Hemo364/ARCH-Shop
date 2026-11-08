@@ -55,7 +55,7 @@ export default function Footer() {
         <div className="pt-6 border-t flex flex-col md:flex-row items-center justify-between gap-3" style={{ borderColor: "var(--border)" }}>
           <p className="text-xs" style={{ color: "var(--muted-foreground)" }}>{footer.copyright}</p>
           <a
-            href="https://portfolio-six-mu-af96puf9ak.vercel.app/"
+            href="https://mohamadian1.ir"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-1.5 text-xs transition-colors duration-200"
